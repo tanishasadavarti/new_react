@@ -1,7 +1,7 @@
 // import logo from './logo.svg';
 import './App.css';
-import Content from './Homepage/Content';
-import Footer from './Homepage/Footer';
+import Content from './homepage/content';
+import Footer from './homepage/footer';
 import Header from './Homepage/Header';
 
 
