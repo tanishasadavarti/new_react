@@ -1,0 +1,17 @@
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
+import Studentform from './assets/component/Studentform'
+
+function App() {
+  const [count, setCount] = useState(0)
+
+  return (
+    <>
+      <Studentform />
+    </>
+  )
+}
+
+export default App
