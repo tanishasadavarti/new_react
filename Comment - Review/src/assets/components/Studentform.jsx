@@ -33,7 +33,7 @@ const Studentform = () => {
 
         <label htmlFor="" style={{ fontSize: "20px" }}>Password : </label>
         <input onChange={(e) => handlechange(e)} name='password' value={password} style={{ padding: "10px", marginBottom: "10px" }} type="password" placeholder='enter your password' /><br />
-
+`
         <label htmlFor="" style={{ fontSize: "20px" }}>Select city </label>
         <select onChange={(e) => handlechange(e)} name="city" value={city} id="">
           <option value="">select your city</option>
