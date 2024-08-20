@@ -31,7 +31,7 @@ const Editpage = () => {
     e.preventDefault(e)
     console.log(formdata)
 
-    axios.put(`http://localhost:3000/product/${id}`,formdata)
+    axios.put( `http://localhost:3000/product/${id}`,formdata)
     .then((res)=>{
       console.log(res)
       alert("updated !!")
