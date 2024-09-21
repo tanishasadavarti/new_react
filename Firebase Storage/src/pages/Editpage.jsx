@@ -1,6 +1,8 @@
 import axios from 'axios'
+import { doc, getDoc, updateDoc } from 'firebase/firestore'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { db } from '../services/firebase'
 
 const initialstate={
   title:"",
@@ -13,36 +15,42 @@ const initialstate={
 const Editpage = () => {
   let {id}=useParams()
   const [formdata,setformdata]=useState(initialstate)
-  const editdata=()=>{
-    axios.get(`http://localhost:3000/product/${id}`)
+
+  const {title,price,description,image,category}=formdata
+
+  const handlechange=(e)=>{
+    setformdata({...formdata,[e.target.name]:e.target.value})
+  }
+  
+  const handlesubmit=(e)=>{
+
+    e.preventDefault()
+    // console.log(formdata)
+
+    updateDoc(doc(db,"products",id),formdata)
     .then((res)=>{
-        console.log(res.data)
-        setformdata(res.data)
+      console.log(res)
+      alert("Data Updated...")
     })
     .catch((err)=>{
       console.log(err)
     })
-  }
-  const handlechange=(e)=>{
-    setformdata({...formdata,[e.target.name]:e.target.value})
-  }
+}
 
-  const handlesubmit=(e)=>{
-    e.preventDefault(e)
-    console.log(formdata)
-
-    axios.put( `http://localhost:3000/product/${id}`,formdata)
+  const GetSingleData=(id)=>{
+    getDoc(doc(db,"products",id))
     .then((res)=>{
-      console.log(res)
-      alert("updated !!")
-    }).catch((err)=>{
+      console.log(res.data())
+      setformdata(res.data())
+    })
+    .catch((err)=>{
       console.log(err)
     })
+
   }
-  const {title,price,category,description,image}=formdata
 
   useEffect(()=>{
-    editdata()
+    GetSingleData(id)
   },[])
   return (
     <div>

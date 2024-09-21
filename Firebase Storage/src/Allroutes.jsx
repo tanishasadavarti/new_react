@@ -5,6 +5,7 @@ import Login from './pages/Login'
 import Privatepage from './components/Privatepage'
 import Products from './pages/Products'
 import Editpage from './pages/Editpage'
+import Addproduct from './pages/Addproducts'
 
 
 const Allroutes = () => {
@@ -14,6 +15,8 @@ const Allroutes = () => {
         <Route path='/login'element={<Login/>} ></Route>
         <Route path='/products'element={<Products/>} ></Route>
         <Route path='/editpage/:id' element={<Editpage/>}> </Route>
+        <Route path='/addproduct' element={<Addproduct/>}> </Route>
+
     </Routes>
   )
 }

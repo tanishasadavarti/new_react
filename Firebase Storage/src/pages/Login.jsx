@@ -1,7 +1,7 @@
 import React from 'react'
 import GoogleButton from 'react-google-button'
-import { auth, provider } from '../services/firebase'
 import { signInWithPopup } from 'firebase/auth'
+import { auth, provider } from '../services/firebase'
 const Login = () => {
   const handlelogin=()=>{
     // alert("hello")
